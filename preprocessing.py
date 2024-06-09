@@ -1,21 +1,10 @@
-
-
 import pandas as pd
-import opendatasets as od
+import numpy as np
 import random
 
-
-
-# od.download("https://www.kaggle.com/competitions/spaceship-titanic")
-
-
-
-
-raw_data=pd.read_csv("/Users/Tyreek ALEXANDER/Documents/kaggle_titanic/spaceship-titanic/train.csv")
-
+raw_data=pd.read_csv("train.csv")
 
 ytrain=raw_data['Transported']
-
 
 
 def clean_dt(raw_data):
@@ -59,29 +48,17 @@ def transform_step(raw_data):
 
    return raw_data
 
-
 res_encoder=preprocessing.LabelEncoder()
 ytrain=res_encoder.fit_transform(ytrain)
-
 
 Xtrain=clean_dt(raw_data)
 Xtrain=transform_step(Xtrain)
 Xtrain.drop(columns=['Transported'],inplace=True)   
 
-
-
-
-raw_test=pd.read_csv('/Users/Tyreek ALEXANDER/Documents/kaggle_titanic/spaceship-titanic/test.csv')
+raw_test=pd.read_csv('test.csv')
 
 Xtest=clean_dt(raw_test)
 Xtest=transform_step(Xtest)
 
-
 from sklearn import model_selection
-
 kag_X_train,kag_X_test,kag_y_train,kag_y_test=model_selection.train_test_split(Xtrain,ytrain,random_state=69,stratify=ytrain)
-
-
-# python -m jupyter nbconvert --to python full_wrangling.ipynb 
-
-
