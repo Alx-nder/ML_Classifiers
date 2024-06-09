@@ -39,9 +39,9 @@ from sklearn import preprocessing
 def transform_step(raw_data):
    label_encoder=preprocessing.LabelEncoder()
 
-   raw_data.CryoSleep=label_encoder.fit_transform(raw_data.CryoSleep).astype(int)
-   raw_data.Starboard=label_encoder.fit_transform(raw_data.Starboard).astype(int)
-   raw_data.VIP=label_encoder.fit_transform(raw_data.VIP)
+   raw_data.CryoSleep=label_encoder.fit_transform(raw_data.CryoSleep).astype(float)
+   raw_data.Starboard=label_encoder.fit_transform(raw_data.Starboard).astype(float)
+   raw_data.VIP=label_encoder.fit_transform(raw_data.VIP).astype(float)
    
    raw_data=pd.get_dummies(raw_data,columns=['Destination','HomePlanet'],dtype=float)
    raw_data=pd.get_dummies(raw_data,columns=['Deck'],dtype=float)

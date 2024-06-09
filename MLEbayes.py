@@ -16,7 +16,7 @@ def mlebayes():
         P=len(class1)/len(Xtrain)
         S=np.cov(class1.T)
         m=(np.ones([1,class1.T.shape[1]]).dot(class1)/class1.shape[0])[0]
-        return (((-0.5*(x-m).T).dot(np.linalg.inv(S))).dot(x-m)) + np.log(P)+ (-0.5*len(x)*(log(2*np.pi))) -0.5*log(np.linalg.det(S))
+        return (((-0.5*(x-m).T).dot(np.linalg.inv(S))).dot(x-m)) + np.log(P)+ (-0.5*len(x)*(log(2*np.pi))) - (0.5*log(np.linalg.det(S)))
 
     def gauss2(x):
         P=len(class2)/len(Xtrain)
