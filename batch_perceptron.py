@@ -4,7 +4,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-
 def batch_perceptron(target,feature, ro):
     names={'0':'setosa','1':'versicolor','2':'virginica'}
 
