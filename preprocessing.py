@@ -43,8 +43,8 @@ def transform_step(raw_data):
    raw_data.Starboard=label_encoder.fit_transform(raw_data.Starboard).astype(int)
    raw_data.VIP=label_encoder.fit_transform(raw_data.VIP)
    
-   raw_data=pd.get_dummies(raw_data,columns=['Destination','HomePlanet'])
-   raw_data=pd.get_dummies(raw_data,columns=['Deck'])
+   raw_data=pd.get_dummies(raw_data,columns=['Destination','HomePlanet'],dtype=float)
+   raw_data=pd.get_dummies(raw_data,columns=['Deck'],dtype=float)
 
    return raw_data
 
